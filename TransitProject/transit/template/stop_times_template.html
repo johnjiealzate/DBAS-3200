@@ -1,0 +1,23 @@
+<h1>Stop Times</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Route</th>
+            <th>Trip ID</th>
+            <th>Stop Name</th>
+            <th>Arrival Time</th>
+            <th>Departure Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stop_time in stop_times %}
+            <tr>
+                <td>{{ stop_time.route_long_name }}</td>
+                <td>{{ stop_time.trip_id }}</td>
+                <td>{{ stop_time.stop_name }}</td>
+                <td>{{ stop_time.arrival_time }}</td>
+                <td>{{ stop_time.departure_time }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -25,7 +25,7 @@ def create_trip(request):
         stop_form = StopForm()
         stop_time_form = StopTimeForm()
 
-    return render(request, 'rideshare/trip_form.html', {
+    return render(request, 'rideshare/create_trip.html', {
         'trip_form': trip_form,
         'stop_form': stop_form,
         'stop_time_form': stop_time_form
@@ -64,7 +64,7 @@ def update_trip(request, trip_id):
         stop_form = StopForm(instance=stop)
         stop_time_form = StopTimeForm(instance=stop_time)
 
-    return render(request, 'rideshare/trip_update_form.html', {
+    return render(request, 'rideshare/update_trip.html', {
         'trip_form': trip_form,
         'stop_form': stop_form,
         'stop_time_form': stop_time_form

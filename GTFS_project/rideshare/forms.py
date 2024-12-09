@@ -1,5 +1,5 @@
 from django import forms
-from .models import Trip, Stop, StopTimes
+from .models import Trip, Stop, StopTime
 
 class TripForm(forms.ModelForm):
     class Meta:
@@ -13,5 +13,5 @@ class StopForm(forms.ModelForm):
 
 class StopTimeForm(forms.ModelForm):
     class Meta:
-        model = StopTimes
+        model = StopTime
         fields = ['stop', 'trip', 'arrival_time', 'departure_time']

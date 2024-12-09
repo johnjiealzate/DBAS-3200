@@ -1,28 +1,34 @@
-<h2>All Trips</h2>
+{% extends 'base.html' %}
 
-<table>
+{% block title %}List of Trips{% endblock %}
+
+{% block content %}
+  <h2>List of Trips</h2>
+  <table>
     <thead>
-        <tr>
-            <th>Trip Name</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Stops</th>
-        </tr>
+      <tr>
+        <th>Trip Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
     </thead>
     <tbody>
-        {% for trip in trips %}
+      {% for trip in trips %}
         <tr>
-            <td>{{ trip.name }}</td>
-            <td>{{ trip.start_date }}</td>
-            <td>{{ trip.end_date }}</td>
-            <td>
-                {% for stop_time in trip.stop_time_set.all %}
-                    <p>{{ stop_time.stop.location }} - Arrival: {{ stop_time.arrival_time }} - Departure: {{ stop_time.departure_time }}</p>
-                {% empty %}
-                    <p>No stops available</p>
-                {% endfor %}
-            </td>
+          <td>{{ trip.name }}</td>
+          <td>{{ trip.start_date }}</td>
+          <td>{{ trip.end_date }}</td>
+          <td>
+            <a href="{% url 'trip_detail' trip.id %}">View Details</a>
+          </td>
         </tr>
-        {% endfor %}
+      {% empty %}
+        <tr>
+          <td colspan="4">No trips available</td>
+        </tr>
+      {% endfor %}
     </tbody>
-</table>
+  </table>
+  <a href="{% url 'create_trip' %}">Create New Trip</a>
+{% endblock %}

@@ -1,0 +1,28 @@
+<h2>All Trips</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Trip Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Stops</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trip in trips %}
+        <tr>
+            <td>{{ trip.name }}</td>
+            <td>{{ trip.start_date }}</td>
+            <td>{{ trip.end_date }}</td>
+            <td>
+                {% for stop_time in trip.stop_time_set.all %}
+                    <p>{{ stop_time.stop.location }} - Arrival: {{ stop_time.arrival_time }} - Departure: {{ stop_time.departure_time }}</p>
+                {% empty %}
+                    <p>No stops available</p>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

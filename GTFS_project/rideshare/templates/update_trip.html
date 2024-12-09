@@ -1,0 +1,15 @@
+<h2>Update Trip: {{ trip.name }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <h3>Trip Details</h3>
+    {{ trip_form.as_p }}
+
+    <h3>Stop Details</h3>
+    {{ stop_form.as_p }}
+
+    <h3>Stop Time Details</h3>
+    {{ stop_time_form.as_p }}
+
+    <button type="submit">Save Changes</button>
+</form>

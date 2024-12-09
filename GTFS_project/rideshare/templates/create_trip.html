@@ -1,0 +1,44 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Create a New Trip</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Trip Form Fields -->
+        <fieldset>
+            <legend>Trip Details</legend>
+            <div>
+                <label for="{{ trip_form.name.id_for_label }}">Trip Name:</label>
+                {{ trip_form.name }}
+            </div>
+            <div>
+                <label for="{{ trip_form.start_date.id_for_label }}">Start Date:</label>
+                {{ trip_form.start_date }}
+            </div>
+            <div>
+                <label for="{{ trip_form.end_date.id_for_label }}">End Date:</label>
+                {{ trip_form.end_date }}
+            </div>
+        </fieldset>
+
+        <!-- Stop Form Fields -->
+        <fieldset>
+            <legend>Stop Details</legend>
+            <div>
+                <label for="{{ stop_form.location.id_for_label }}">Location:</label>
+                {{ stop_form.location }}
+            </div>
+            <div>
+                <label for="{{ stop_form.arrival_time.id_for_label }}">Arrival Time:</label>
+                {{ stop_form.arrival_time }}
+            </div>
+            <div>
+                <label for="{{ stop_form.departure_time.id_for_label }}">Departure Time:</label>
+                {{ stop_form.departure_time }}
+            </div>
+        </fieldset>
+
+        <!-- Stop Time Form Fields -->
+        <fieldset

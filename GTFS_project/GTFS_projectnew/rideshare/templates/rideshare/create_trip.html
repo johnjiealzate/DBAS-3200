@@ -1,0 +1,11 @@
+{% block content %}
+    <h2>Create a New Trip</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ trip_form.as_p }}
+        {{ stop_form.as_p }}
+        {{ stop_time_form.as_p }}
+        <button type="submit">Save Trip</button>
+    </form>
+{% endblock %}
